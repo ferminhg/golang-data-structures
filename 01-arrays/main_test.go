@@ -76,3 +76,65 @@ func BigIntArrayFacker(size int) []big.Int {
 	}
 	return fakeNumbers
 }
+
+func TestNameStringArray(t *testing.T) {
+	names := createNameArray()
+	for _, name := range names {
+		t.Log(name)
+	}
+
+	if len(names) != 3 {
+		t.Errorf("Expected %v, got %v", 3, len(names))
+	}
+}
+
+func createNameArray() []string {
+	return []string{"Lucia", "Maya", "Beka"}
+}
+
+func TestSumMatrix(t *testing.T) {
+	matrix := [][]int{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
+	}
+	expected := 45
+	result := sumMatrix(&matrix)
+	if result != expected {
+		t.Errorf("Expected %v, but got %v", expected, result)
+	}
+}
+
+func sumMatrix(matrix *[][]int) int {
+	sum := 0
+	for _, row := range *matrix {
+		for _, num := range row {
+			sum += num
+		}
+	}
+	return sum
+}
+
+func TestSearchOnArray(t *testing.T) {
+	emptyArray := []int{}
+	var result bool
+	result = search(0, emptyArray)
+	if result != false {
+		t.Errorf("Expected %v, got %v", false, result)
+	}
+
+	fixedArray := createArrayFixedSize()
+	result = search(1, fixedArray[:])
+	if result != true {
+		t.Errorf("Expected %v, got %v", true, result)
+	}
+}
+
+func search(number int, array []int) bool {
+	for _, num := range array {
+		if num == number {
+			return true
+		}
+	}
+	return false
+}

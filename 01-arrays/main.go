@@ -34,10 +34,4 @@ func sumArrayBigInt(numbers []big.Int) *big.Int {
 	return total
 }
 
-// Array de strings: Crea un array de strings y úsalo para almacenar nombres de personas. Luego recorre el array e imprime cada nombre en una línea separada.
-
-// Array de arrays (Matrices): Crea una matriz (un array de arrays) de enteros. Puedes pensar en esto como una tabla de números con filas y columnas. Intenta sumar todos los números en la matriz.
-
-// Búsqueda en un array: Crea un array de 10 números. Luego, escribe una función que tome un número y devuelva true si el número está en el array y false si n
-
 //TODO ejercicos de slices
