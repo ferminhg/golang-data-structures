@@ -55,14 +55,14 @@ func TestSumBigArray(t *testing.T) {
 		t.Errorf("Expected %v, but got %v", expected, result)
 	}
 
-	faker := BigIntArrayFacker(5)
-	if len(faker) != 5 {
-		t.Errorf("Expected %v, but got %v", 5, len(faker))
+	bigIntArrayFacker := BigIntArrayFacker(5)
+	if len(bigIntArrayFacker) != 5 {
+		t.Errorf("Expected %v, but got %v", 5, len(bigIntArrayFacker))
 	}
 
-	result = sumArrayBigInt(faker)
+	result = sumArrayBigInt(bigIntArrayFacker)
 
-	if result.Cmp(&faker[0]) > 1 {
+	if result.Cmp(&bigIntArrayFacker[0]) > 1 {
 		t.Errorf("Expected %v, but got %v", expected, result)
 	}
 }
@@ -71,7 +71,10 @@ func BigIntArrayFacker(size int) []big.Int {
 	var fakeNumbers []big.Int
 	for i := 0; i < size; i++ {
 		var num int
-		faker.FakeData(&num)
+		err := faker.FakeData(&num)
+		if err != nil {
+			panic(err)
+		}
 		fakeNumbers = append(fakeNumbers, *big.NewInt(int64(num)))
 	}
 	return fakeNumbers
