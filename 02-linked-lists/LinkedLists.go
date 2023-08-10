@@ -51,6 +51,9 @@ func (s *SinglyLinkedList[T]) Last() Node[T] {
 }
 
 func (s *SinglyLinkedList[T]) First() Node[T] {
+	if s.head == nil {
+		return Node[T]{}
+	}
 	return *s.head
 }
 
