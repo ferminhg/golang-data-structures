@@ -1,11 +1,10 @@
 package array
 
 import (
+	"github.com/go-faker/faker/v4"
 	"math/big"
 	"reflect"
 	"testing"
-
-	"github.com/bxcodec/faker"
 )
 
 func TestCreateArrayFixedSize(t *testing.T) {
