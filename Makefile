@@ -12,7 +12,6 @@ vet: fmt
 	go vet ./...
 .PHONY:vet
 
-
 test:
-	go test ./...
+	go test ./... -v
 .PHONY:test
