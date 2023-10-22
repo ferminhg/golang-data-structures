@@ -1,4 +1,4 @@
-package main
+package solid
 
 import (
 	"fmt"
@@ -71,7 +71,7 @@ func (p *Persistence) SaveToFile(j *Journal, filename string) {
 		)), 0644)
 }
 
-func main() {
+func solidSRP() {
 	j := Journal{}
 	j.AddEntry("I cried today")
 	j.AddEntry("I ate a bug")
