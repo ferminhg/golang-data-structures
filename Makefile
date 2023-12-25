@@ -1,21 +1,17 @@
 .DEFAULT_GOAL := build
+.PHONY:fmt lint vet test vtest
 
 fmt:
 	go fmt ./...
-.PHONY:fmt
 
 lint: fmt
-	golint ./...
-.PHONY:lint
+	golangci-lint run
 
 vet: fmt
 	go vet ./...
-.PHONY:vet
 
 test:
 	go test ./...
-.PHONY:test
 
 vtest:
 	go test ./... -v
-.PHONY:vtest

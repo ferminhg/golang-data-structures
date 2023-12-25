@@ -37,27 +37,29 @@ func TestHourglassSum(t *testing.T) {
 }
 
 func hourglassSum(arr [][]int32) int32 {
-	var max int32
+	var maxValue int32
 	for i := 0; i < 4; i++ {
 		for j := 0; j < 4; j++ {
 			sum := arr[i][j] + arr[i][j+1] + arr[i][j+2] +
 				arr[i+1][j+1] +
 				arr[i+2][j] + arr[i+2][j+1] + arr[i+2][j+2]
-			fmt.Println(sum, max)
+			fmt.Println(sum, maxValue)
 			if i == 0 && j == 0 {
-				max = sum
+				maxValue = sum
 			}
-			if sum > max {
-				max = sum
+			if sum > maxValue {
+				maxValue = sum
 			}
 		}
 	}
-	return max
+	return maxValue
 }
 
 func TestRotLeft(t *testing.T) {
-	var expected []int32 = []int32{5, 1, 2, 3, 4}
-	var result []int32
+	var (
+		expected = []int32{5, 1, 2, 3, 4}
+		result   []int32
+	)
 	result = rotLeft([]int32{1, 2, 3, 4, 5}, 4)
 
 	if !reflect.DeepEqual(result, expected) {
@@ -101,13 +103,12 @@ func TestMinimumBrides(t *testing.T) {
 
 func minimumBribes(q []int32) int32 {
 	var bribes int32 = 0
-	var i int32 = 0
-	var j int32 = 0
+	var i, j int32
 	for i = int32(len(q) - 1); i >= 0; i-- {
-		if int32(q[i])-(i+1) > 2 {
+		if q[i]-(i+1) > 2 {
 			return -1
 		}
-		for j = max(0, q[i]-2); j < i; j++ {
+		for j = maxInt32(0, q[i]-2); j < i; j++ {
 			if q[j] > q[i] {
 				bribes++
 			}
@@ -116,7 +117,7 @@ func minimumBribes(q []int32) int32 {
 	return bribes
 }
 
-func max(a, b int32) int32 {
+func maxInt32(a, b int32) int32 {
 	if a > b {
 		return a
 	}
