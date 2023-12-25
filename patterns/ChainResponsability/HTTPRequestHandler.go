@@ -22,6 +22,13 @@ type HandlerResult struct {
 	Message    string
 }
 
+// HTTPRequest represents an incoming request.
+type HTTPRequest struct {
+	Url    string
+	Method string
+	Params string
+}
+
 // SetNext sets the next handler in the chain and returns it.
 func (b *BaseHandler) SetNext(handler Handler) Handler {
 	b.next = handler
@@ -40,13 +47,6 @@ func (b *BaseHandler) Handle(request *HTTPRequest) *HandlerResult {
 	}
 	// If no next handler, or next handler returned success (which should not happen in BaseHandler), return a default success result.
 	return &HandlerResult{StatusCode: 200, Message: "Request processed successfully by BaseHandler"}
-}
-
-// HTTPRequest represents an incoming request.
-type HTTPRequest struct {
-	Url    string
-	Method string
-	Params string
 }
 
 // Authenticator checks if the request has valid credentials.
