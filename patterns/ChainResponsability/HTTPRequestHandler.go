@@ -16,6 +16,12 @@ type BaseHandler struct {
 	next Handler
 }
 
+// HandlerResult contains information about the result of a handler's operation.
+type HandlerResult struct {
+	StatusCode int
+	Message    string
+}
+
 // SetNext sets the next handler in the chain and returns it.
 func (b *BaseHandler) SetNext(handler Handler) Handler {
 	b.next = handler
@@ -41,12 +47,6 @@ type HTTPRequest struct {
 	Url    string
 	Method string
 	Params string
-}
-
-// HandlerResult contains information about the result of a handler's operation.
-type HandlerResult struct {
-	StatusCode int
-	Message    string
 }
 
 // Authenticator checks if the request has valid credentials.
