@@ -15,18 +15,28 @@ Notes:
 
 ### List of Design Patterns:
 
-- SOLID Principles
+- [SOLID Principles](patterns/solid/solid.srp.go)
+
+## Creational Patterns
+- [Factory](patterns/factory/structure.go)
+- Abstract Factory
 - Builder
-- Factory
 - Prototype
 - Singleton
+
+
+## Structural Patterns
+
 - Adapter
 - Bridge
 - Composite
 - Decorator
 - Facade
 - Flyweight
-- Chain of Responsibility
+
+## Behavioral Patterns
+
+- [Chain of Responsibility](patterns/ChainResponsability/README.md)
 - Command
 - Interpreter
 - Iterator
