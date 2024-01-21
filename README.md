@@ -37,7 +37,7 @@ Notes:
 ## Behavioral Patterns
 
 - [Chain of Responsibility](patterns/ChainResponsability/README.md)
-- Command
+- [Command](patterns/command/README.md)
 - Interpreter
 - Iterator
 - Mediator
